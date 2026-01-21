@@ -1,177 +1,483 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thunderbull Esports</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ThunderBull Esports</title>
 
 <style>
-body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:#000;
-  color:#eee;
-  direction:rtl;
-}
+  :root{
+    --bg:#050507;
+    --panel:#0b0b10;
+    --panel2:#0f1018;
+    --text:#e9e9ee;
+    --muted:#b7b7c4;
+    --red:#ff1f1f;
+    --red2:#8b0000;
+    --line:rgba(255,255,255,.08);
+    --shadow:0 18px 50px rgba(0,0,0,.55);
+    --radius:18px;
+  }
 
-header{
-  text-align:center;
-  padding:50px 20px;
-  background:linear-gradient(180deg,#8b0000,#000);
-}
-header img{
-  width:170px;
-}
-h1{
-  color:#ff1f1f;
-  letter-spacing:2px;
-  margin-top:20px;
-}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+      radial-gradient(900px 500px at 15% 10%, rgba(255,31,31,.14), transparent 60%),
+      radial-gradient(700px 450px at 85% 25%, rgba(139,0,0,.18), transparent 55%),
+      linear-gradient(180deg, #050507, #000);
+    color:var(--text);
+    direction:rtl;
+  }
 
-.section{
-  max-width:1000px;
-  margin:30px auto;
-  padding:25px;
-  background:#0a0a0a;
-  border:1px solid #8b0000;
-  border-radius:20px;
-}
+  /* Top nav */
+  .nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    backdrop-filter: blur(10px);
+    background: rgba(5,5,7,.65);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1100px;
+    margin:0 auto;
+    padding:12px 16px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    justify-content:space-between;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:var(--text);
+  }
+  .brand-badge{
+    width:34px;height:34px;
+    border-radius:12px;
+    background: linear-gradient(145deg, rgba(255,31,31,.25), rgba(139,0,0,.15));
+    border:1px solid rgba(255,31,31,.25);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 10px 30px rgba(255,31,31,.08);
+  }
+  .brand-badge span{
+    font-weight:900;
+    color:var(--red);
+  }
+  .brand-title{
+    display:flex;
+    flex-direction:column;
+    line-height:1.1;
+  }
+  .brand-title strong{font-size:14px; letter-spacing:.5px}
+  .brand-title small{font-size:11px; color:var(--muted)}
+  .nav-links{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+  }
+  .chip{
+    text-decoration:none;
+    color:var(--text);
+    font-size:12px;
+    padding:8px 10px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.03);
+  }
+  .chip:hover{border-color:rgba(255,31,31,.35); background:rgba(255,31,31,.06)}
 
-.section h2{
-  color:#ff1f1f;
-  margin-bottom:15px;
-}
+  /* Hero */
+  .hero{
+    max-width:1100px;
+    margin:0 auto;
+    padding:34px 16px 10px;
+    display:grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap:18px;
+    align-items:stretch;
+  }
+  @media (max-width: 900px){
+    .hero{grid-template-columns:1fr}
+  }
+  .hero-card{
+    background: linear-gradient(180deg, rgba(15,16,24,.9), rgba(10,10,16,.85));
+    border:1px solid rgba(255,31,31,.18);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding:22px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-card::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    background: radial-gradient(420px 260px at 20% 10%, rgba(255,31,31,.22), transparent 65%),
+                radial-gradient(520px 320px at 80% 35%, rgba(139,0,0,.22), transparent 70%);
+    pointer-events:none;
+    opacity:.85;
+  }
+  .hero-content{position:relative}
+  .title{
+    margin:0 0 8px 0;
+    font-size:42px;
+    letter-spacing:1px;
+  }
+  @media(max-width:520px){
+    .title{font-size:34px}
+  }
+  .title .accent{color:var(--red)}
+  .subtitle{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.7;
+    max-width:62ch;
+  }
+  .cta-row{
+    margin-top:14px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 12px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:13px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.04);
+    color:var(--text);
+  }
+  .btn:hover{transform: translateY(-1px); border-color:rgba(255,31,31,.35); background:rgba(255,31,31,.08)}
+  .btn.primary{
+    background: linear-gradient(180deg, rgba(255,31,31,.95), rgba(139,0,0,.95));
+    border-color: rgba(255,31,31,.45);
+  }
+  .btn.primary:hover{background: linear-gradient(180deg, rgba(255,31,31,1), rgba(139,0,0,1))}
+  .meta{
+    margin-top:14px;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:10px;
+  }
+  @media(max-width:520px){
+    .meta{grid-template-columns:1fr}
+  }
+  .stat{
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:12px;
+  }
+  .stat strong{display:block; color:var(--red); font-size:13px}
+  .stat span{display:block; color:var(--muted); font-size:12px; margin-top:4px}
 
-ul{
-  list-style:none;
-  padding:0;
-}
-li{
-  padding:6px 0;
-}
+  .logo-card{
+    background: linear-gradient(180deg, rgba(11,11,16,.92), rgba(8,8,12,.9));
+    border:1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+  }
+  .logo-wrap{
+    width:180px;
+    border-radius:18px;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,31,31,.18);
+    padding:14px;
+  }
+  .logo-wrap img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  .logo-card p{
+    margin:0;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.6;
+  }
 
-a{
-  color:#ff4d4d;
-  text-decoration:none;
-}
-a:hover{
-  text-decoration:underline;
-}
+  /* Sections */
+  .container{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 16px 24px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap:14px;
+  }
+  .card{
+    background:rgba(15,16,24,.7);
+    border:1px solid var(--line);
+    border-radius: var(--radius);
+    padding:18px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.45);
+  }
+  .card:hover{border-color:rgba(255,31,31,.25)}
+  .card h2{
+    margin:0 0 10px 0;
+    font-size:18px;
+    color:var(--red);
+    letter-spacing:.5px;
+  }
+  .muted{color:var(--muted); font-size:13px; line-height:1.75; margin:0}
+  .list{
+    list-style:none;
+    padding:0;
+    margin:10px 0 0 0;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .list li{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:10px 12px;
+    border-radius:14px;
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--line);
+  }
+  .list li .name{font-weight:800}
+  .list li a{
+    color:#ffd1d1;
+    text-decoration:none;
+    font-weight:700;
+    font-size:13px;
+    padding:6px 10px;
+    border-radius:12px;
+    border:1px solid rgba(255,31,31,.25);
+    background:rgba(255,31,31,.08);
+    white-space:nowrap;
+  }
+  .list li a:hover{background:rgba(255,31,31,.14)}
+  .span-6{grid-column:span 6}
+  .span-12{grid-column:span 12}
+  @media(max-width:900px){
+    .span-6,.span-12{grid-column:span 12}
+  }
 
-.social-links a{
-  display:inline-block;
-  margin:5px 10px;
-}
+  /* Sponsor */
+  .sponsor-box{
+    display:flex;
+    gap:16px;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  .sponsor-img{
+    width:190px;
+    background:#fff;
+    border-radius:16px;
+    padding:14px;
+  }
+  .sponsor-img img{width:100%; display:block}
+  .sponsor-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
 
-.sponsor{
-  text-align:center;
-}
-.sponsor img{
-  width:200px;
-  background:#fff;
-  padding:15px;
-  border-radius:14px;
-}
+  /* Footer */
+  footer{
+    text-align:center;
+    padding:20px 16px 30px;
+    color:#8c8c98;
+    border-top:1px solid var(--line);
+    margin-top:18px;
+  }
 
-footer{
-  text-align:center;
-  padding:20px;
-  color:#777;
-}
 </style>
 </head>
 
 <body>
 
-<header>
-  <img src="logo-team.png.jpg.JPG" alt="Thunderbull Logo">
-  <h1>THUNDERBULL ESPORTS</h1>
-</header>
+<!-- NAV -->
+<div class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <div class="brand-badge"><span>TB</span></div>
+      <div class="brand-title">
+        <strong>ThunderBull Esports</strong>
+        <small>Jordan • Since 2025</small>
+      </div>
+    </a>
 
-<!-- ABOUT -->
-<div class="section">
-  <h2>📖 نبذة عن الفريق | About Us</h2>
-
-  <p>
-    تأسس فريق <strong>Thunder Bull Esports</strong> في عام <strong>٢٠٢٥</strong>
-    ليواكب التغيرات على الساحة الرياضية الإلكترونية الأردنية،
-    ويسعى إلى المنافسة وبناء اسم قوي في عالم الرياضات الإلكترونية.
-  </p>
-
-  <p>
-    <strong>Thunder Bull Esports</strong> was founded in <strong>2025</strong> to keep up
-    with the evolving Jordanian esports scene, aiming to compete and build a strong
-    presence in professional esports.
-  </p>
-
-  <ul>
-    <li><strong>Founder:</strong> Moayad Jalal</li>
-    <li><strong>Team Manager:</strong> Yazan Alsekek</li>
-    <li><strong>Team Leader:</strong> Mahmoud Khtoum</li>
-  </ul>
-</div>
-
-<!-- TEAM ACCOUNTS -->
-<div class="section">
-  <h2>📱 Team Accounts</h2>
-  <div class="social-links">
-    <a href="https://www.instagram.com/thunderbull.jo" target="_blank">Instagram</a>
-    <a href="https://www.facebook.com/share/1J7bc2PwDn" target="_blank">Facebook</a>
+    <div class="nav-links">
+      <a class="chip" href="#about">نبذة</a>
+      <a class="chip" href="#accounts">حسابات الفريق</a>
+      <a class="chip" href="#efootball">EFootball</a>
+      <a class="chip" href="#r6">Rainbow Six Siege</a>
+      <a class="chip" href="#tekken">TEKKEN 8</a>
+      <a class="chip" href="#sponsor">Sponsor</a>
+    </div>
   </div>
 </div>
 
-<!-- EFOOTBALL -->
-<div class="section">
-  <h2>🎮 EFootball</h2>
-  <ul>
-    <li>
-      SwiftorX14 —
-      <a href="https://www.instagram.com/moayadismael06" target="_blank">
-        Instagram
-      </a>
-    </li>
-  </ul>
+<div id="top" class="hero">
+  <div class="hero-card">
+    <div class="hero-content">
+      <h1 class="title"><span class="accent">THUNDERBULL</span> ESPORTS</h1>
+      <p class="subtitle">
+        فريق أردني للرياضات الإلكترونية. تأسس عام ٢٠٢٥ ليواكب التغيرات على الساحة الأردنية ويسعى للمنافسة وبناء حضور قوي.
+        <br />
+        A Jordanian esports team founded in 2025 to keep up with the evolving scene and compete at a high level.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn primary" href="https://thunderbulljo.netlify.app" target="_blank">🌐 Website</a>
+        <a class="btn" href="https://www.instagram.com/thunderbull.jo" target="_blank">📷 Instagram</a>
+        <a class="btn" href="https://www.facebook.com/share/1J7bc2PwDn/?mibextid=wwXIfr" target="_blank">📘 Facebook</a>
+      </div>
+
+      <div class="meta">
+        <div class="stat">
+          <strong>Founder</strong>
+          <span>Moayad Jalal</span>
+        </div>
+        <div class="stat">
+          <strong>Team Manager</strong>
+          <span>Yazan Alsekek</span>
+        </div>
+        <div class="stat">
+          <strong>Team Leader</strong>
+          <span>Mahmoud Khtoum</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="logo-card">
+    <div class="logo-wrap">
+      <img src="logo-team.png.jpg.JPG" alt="ThunderBull Logo">
+    </div>
+    <p>Red & Black identity • ThunderBull Esports</p>
+  </div>
 </div>
 
-<!-- RAINBOW SIX -->
-<div class="section">
-  <h2>🔫 Rainbow Six Siege</h2>
-  <ul>
-    <li><a href="https://www.instagram.com/mahmoud_khtoum" target="_blank">Mahmoud Khtoum</a></li>
-    <li><a href="https://www.instagram.com/ali.shatnaw.i" target="_blank">Ali Shatnawi</a></li>
-    <li><a href="https://www.instagram.com/ahmad_khtoum" target="_blank">Ahmad Khtoum</a></li>
-    <li><a href="https://www.instagram.com/m7md.khateeb__" target="_blank">Mohammad Khateeb</a></li>
-    <li><a href="https://www.instagram.com/_.abushmma" target="_blank">Abu Shmma</a></li>
-    <li><a href="https://www.instagram.com/khaledalfazza" target="_blank">Khaled Alfazza</a></li>
-  </ul>
-</div>
+<div class="container">
+  <div class="grid">
 
-<!-- TEKKEN -->
-<div class="section">
-  <h2>🥊 TEKKEN 8</h2>
-  <ul>
-    <li>ReapeR</li>
-    <li>
-      <a href="https://www.instagram.com/hamzaaltamimi006" target="_blank">
-        Hamza AlTamimi
-      </a>
-    </li>
-  </ul>
-</div>
+    <!-- ABOUT -->
+    <div id="about" class="card span-12">
+      <h2>📖 نبذة عن الفريق | About Us</h2>
+      <p class="muted">
+        تأسس فريق <strong>ThunderBull Esports</strong> في عام <strong>٢٠٢٥</strong>
+        ليواكب التغيرات على الساحة الرياضية الإلكترونية الأردنية، ويهدف إلى المنافسة وبناء اسم قوي في عالم الرياضات الإلكترونية.
+      </p>
+      <p class="muted" style="margin-top:10px">
+        <strong>ThunderBull Esports</strong> was founded in <strong>2025</strong> to keep up with the evolving Jordanian esports scene,
+        aiming to compete and build a strong presence in professional esports.
+      </p>
+    </div>
 
-<!-- SPONSOR -->
-<div class="section sponsor">
-  <h2>🤝 Official Sponsor</h2>
-  <img src="logo-sponsor.png.jpg" alt="Sponsor Logo">
-  <p>
-    <a href="https://www.instagram.com/d2gamingcenter" target="_blank">
-      D2 Gaming Center – Instagram
-    </a>
-  </p>
+    <!-- Team Accounts -->
+    <div id="accounts" class="card span-6">
+      <h2>📱 حسابات الفريق | Team Accounts</h2>
+      <p class="muted">تابعنا على السوشال ميديا:</p>
+      <div class="cta-row" style="margin-top:12px">
+        <a class="btn" href="https://www.instagram.com/thunderbull.jo" target="_blank">📷 thunderbull.jo</a>
+        <a class="btn" href="https://www.facebook.com/share/1J7bc2PwDn/?mibextid=wwXIfr" target="_blank">📘 Facebook Page</a>
+      </div>
+    </div>
+
+    <!-- Quick Info -->
+    <div class="card span-6">
+      <h2>⚡ معلومات سريعة | Quick Info</h2>
+      <ul class="list">
+        <li><span class="name">Founded</span><span>2025</span></li>
+        <li><span class="name">Colors</span><span>Red & Black</span></li>
+        <li><span class="name">Website</span><a href="https://thunderbulljo.netlify.app" target="_blank">Open</a></li>
+      </ul>
+    </div>
+
+    <!-- EFootball -->
+    <div id="efootball" class="card span-6">
+      <h2>🎮 EFootball</h2>
+      <p class="muted">لاعب الفريق:</p>
+      <ul class="list">
+        <li>
+          <span class="name">SwiftorX14</span>
+          <a href="https://www.instagram.com/moayadismael06?igsh=aDM1Y3kzMWt6MGMx" target="_blank">Instagram</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Rainbow Six Siege -->
+    <div id="r6" class="card span-6">
+      <h2>🔫 Rainbow Six Siege</h2>
+      <p class="muted">لاعبين الفريق:</p>
+      <ul class="list">
+        <li><span class="name">Mahmoud Khtoum</span><a href="https://www.instagram.com/mahmoud_khtoum?igsh=MWoxYmM0aHU1cGxuMw==" target="_blank">Instagram</a></li>
+        <li><span class="name">Ali Shatnawi</span><a href="https://www.instagram.com/ali.shatnaw.i?igsh=MW9wdmx6bmNyYWNmbw==" target="_blank">Instagram</a></li>
+        <li><span class="name">Ahmad Khtoum</span><a href="https://www.instagram.com/ahmad_khtoum?igsh=MW03amt3MTc0aGhwcw==" target="_blank">Instagram</a></li>
+        <li><span class="name">Mohammad Khateeb</span><a href="https://www.instagram.com/m7md.khateeb__?igsh=MXh3NDR5eWRvYXpjMw==" target="_blank">Instagram</a></li>
+        <li><span class="name">Abu Shmma</span><a href="https://www.instagram.com/_.abushmma?igsh=MXh0d2g2ZHFrdmFxZw==" target="_blank">Instagram</a></li>
+        <li><span class="name">Khaled Alfazza</span><a href="https://www.instagram.com/khaledalfazza?igsh=MW5kMDliOGpkaTZ2cg==" target="_blank">Instagram</a></li>
+      </ul>
+    </div>
+
+    <!-- Tekken -->
+    <div id="tekken" class="card span-12">
+      <h2>🥊 TEKKEN 8</h2>
+      <ul class="list">
+        <li><span class="name">ReapeR</span><span></span></li>
+        <li>
+          <span class="name">Hamza AlTamimi</span>
+          <a href="https://www.instagram.com/hamzaaltamimi006?igsh=MWpjNHU5Z3ZvbGNhOA==" target="_blank">Instagram</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Sponsor -->
+    <div id="sponsor" class="card span-12">
+      <h2>🤝 Sponsor</h2>
+      <div class="sponsor-box">
+        <div class="sponsor-img">
+          <img src="logo-sponsor.png.jpg" alt="Sponsor Logo">
+        </div>
+        <div>
+          <p class="muted" style="margin:0 0 10px 0">
+            <strong>D2 Gaming Center</strong> — Official Sponsor
+          </p>
+          <div class="sponsor-actions">
+            <a class="btn primary" href="https://www.instagram.com/d2gamingcenter?igsh=dHBjZWk2Z2phYnZn" target="_blank">📷 Sponsor Instagram</a>
+            <a class="btn" href="#top">⬆️ رجوع للأعلى</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <footer>
-  © 2026 Thunderbull Esports • Powered by GitHub Pages
+  © 2026 ThunderBull Esports • Powered by Netlify
 </footer>
 
 </body>

@@ -1,289 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Thunderbull Esports</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thunderbull Esports</title>
 
-  <style>
-    :root{
-      --black:#05060a;
-      --dark:#0b0f1a;
-      --red:#c81e1e;
-      --gold:#f5c542;
-      --text:#e5e7eb;
-      --muted:#a1a1aa;
-      --card:#111827;
-      --border:#1f2937;
-    }
-
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(800px 400px at 20% -10%, rgba(200,30,30,.25), transparent 60%),
-        radial-gradient(700px 400px at 80% 0%, rgba(245,197,66,.20), transparent 55%),
-        linear-gradient(180deg, var(--black), var(--dark));
-      color:var(--text);
-    }
-
-    /* NAV */
-    .nav{
-      position:sticky; top:0;
-      background: rgba(5,6,10,.75);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--border);
-      padding:14px 22px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      z-index:10;
-    }
-    .nav .brand{
-      font-weight:900;
-      letter-spacing:1px;
-      color:var(--gold);
-      font-size:18px;
-    }
-    .nav a{
-      color:var(--muted);
-      text-decoration:none;
-      margin-left:16px;
-      font-size:14px;
-    }
-    .nav a:hover{color:#fff}
-
-    /* HERO */
-    .wrap{max-width:1100px;margin:auto;padding:40px 20px 80px}
-    .hero{text-align:center;padding-top:30px}
-
-    .team-logo{
-      width:180px;
-      height:180px;
-      margin:0 auto 22px;
-      border-radius:22px;
-      background:#000;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border:1px solid var(--border);
-      padding:10px;
-    }
-    .team-logo img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-    }
-
-    h1{
-      margin:10px 0 0;
-      font-size:56px;
-      letter-spacing:2px;
-      color:var(--gold);
-    }
-    .tagline{
-      max-width:760px;
-      margin:16px auto;
-      font-size:18px;
-      color:var(--muted);
-      line-height:1.6;
-    }
-
-    .badges{
-      display:flex;
-      gap:10px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top:18px;
-    }
-    .badge{
-      padding:8px 14px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:rgba(17,24,39,.6);
-      font-size:13px;
-    }
-
-    .cta{
-      margin-top:26px;
-      display:flex;
-      gap:14px;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
-    .btn{
-      padding:12px 18px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:700;
-      color:#fff;
-      border:1px solid var(--border);
-    }
-    .btn.primary{
-      background:linear-gradient(135deg,var(--red),#7a0000);
-      box-shadow:0 10px 30px rgba(200,30,30,.25);
-    }
-    .btn.ghost{
-      background:rgba(17,24,39,.6);
-    }
-
-    /* SECTIONS */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(12,1fr);
-      gap:16px;
-      margin-top:40px;
-    }
-    .card{
-      grid-column:span 6;
-      background:rgba(17,24,39,.65);
-      border:1px solid var(--border);
-      border-radius:20px;
-      padding:20px;
-    }
-    .card h2{
-      margin:0 0 10px;
-      color:#fff;
-      font-size:20px;
-    }
-    .card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.7;
-      font-size:15px;
-    }
-
-    /* SPONSOR */
-    .sponsor{
-      margin-top:50px;
-      text-align:center;
-    }
-    .sponsor h3{
-      color:var(--muted);
-      font-weight:600;
-      margin-bottom:16px;
-      letter-spacing:1px;
-    }
-    .sponsor-logo{
-      width:220px;
-      margin:auto;
-      padding:18px;
-      background:#fff;
-      border-radius:16px;
-    }
-    .sponsor-logo img{
-      width:100%;
-      height:auto;
-    }
-
-    /* SOCIAL */
-    .social{
-      margin-top:40px;
-      display:flex;
-      gap:14px;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
-    .social a{
-      padding:10px 16px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background:rgba(17,24,39,.6);
-      color:#cbd5f5;
-      text-decoration:none;
-      font-size:14px;
-    }
-    .social a:hover{color:#fff}
-
-    footer{
-      margin-top:50px;
-      text-align:center;
-      font-size:13px;
-      color:#777;
-    }
-
-    @media(max-width:850px){
-      h1{font-size:40px}
-      .card{grid-column:span 12}
-    }
-  </style>
+<style>
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#05060a;
+  color:#e5e7eb;
+}
+header{
+  text-align:center;
+  padding:50px 20px;
+}
+header img{
+  width:180px;
+}
+h1{
+  color:#f5c542;
+  letter-spacing:2px;
+  margin-top:20px;
+}
+section{
+  max-width:1000px;
+  margin:40px auto;
+  padding:25px;
+  background:#0b0f1a;
+  border-radius:18px;
+}
+h2{
+  color:#f5c542;
+  margin-bottom:15px;
+}
+ul{
+  list-style:none;
+  padding:0;
+}
+li{
+  padding:6px 0;
+}
+a{
+  color:#60a5fa;
+  text-decoration:none;
+}
+a:hover{
+  text-decoration:underline;
+}
+.sponsor{
+  text-align:center;
+}
+.sponsor img{
+  width:200px;
+  background:#fff;
+  padding:15px;
+  border-radius:14px;
+}
+footer{
+  text-align:center;
+  padding:20px;
+  color:#777;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="nav">
-    <div class="brand">THUNDERBULL</div>
-    <div>
-      <a href="#about">About</a>
-      <a href="#sponsor">Sponsor</a>
-      <a href="#social">Social</a>
-    </div>
-  </div>
+<header>
+  <img src="logo-team.png.jpg.JPG" alt="Thunderbull Logo">
+  <h1>THUNDERBULL ESPORTS</h1>
+  <p>
+    A Jordanian esports team built for competition, discipline, and teamwork.<br>
+    <strong>Team Manager:</strong> Yazan Alsekek
+  </p>
+</header>
 
-  <div class="wrap">
-    <section class="hero">
-      <div class="team-logo">
-        <!-- شعار الفريق -->
-        <img src="logo-team.png.jpg.JPG" alt="Thunderbull Logo">
-      </div>
+<section>
+  <h2>🎮 EFootball Team</h2>
+  <ul>
+    <li>SwiftorX14</li>
+    <li>R6 i5TxuM-(*)</li>
+    <li>Hot.Sauce</li>
+    <li>RUNAWAYBb</li>
+    <li>Rasmi20</li>
+    <li>HACKER-_-jO</li>
+    <li><strong>Head Coach:</strong> Ahmad Khtoum</li>
+  </ul>
 
-      <h1>THUNDERBULL</h1>
-      <p class="tagline">
-        A Jordanian esports team built for competition, discipline, and teamwork.
-        Thunderbull represents strength, passion, and the will to dominate every match.
-      </p>
+  <h3>📸 Player Instagram</h3>
+  <a href="https://www.instagram.com/d2gamingcenter?igsh=dHBjZWk2Z2phYnZn" target="_blank">
+    EFootball Team Instagram
+  </a>
+</section>
 
-      <div class="badges">
-        <div class="badge">🇯🇴 Jordan</div>
-        <div class="badge">Esports Team</div>
-        <div class="badge">Black • Red • Gold</div>
-      </div>
+<section>
+  <h2>🥊 R6 Team</h2>
+  <ul>
+    <li><a href="https://www.instagram.com/mahmoud_khtoum?igsh=MWoxYmM0aHU1cGxuMw==" target="_blank">Mahmoud Khtoum</a></li>
+    <li><a href="https://www.instagram.com/ali.shatnaw.i?igsh=MW9wdmx6bmNyYWNmbw==" target="_blank">Ali Shatnawi</a></li>
+    <li><a href="https://www.instagram.com/ahmad_khtoum?igsh=MW03amt3MTc0aGhwcw==" target="_blank">Ahmad Khtoum</a></li>
+    <li><a href="https://www.instagram.com/m7md.khateeb__?igsh=MXh3NDR5eWRvYXpjMw==" target="_blank">Mohammad Khateeb</a></li>
+    <li><a href="https://www.instagram.com/_.abushmma?igsh=MXh0d2g2ZHFrdmFxZw==" target="_blank">Abu Shmma</a></li>
+    <li><a href="https://www.instagram.com/khaledalfazza?igsh=MW5kMDliOGpkaTZ2cg==" target="_blank">Khaled Alfazza</a></li>
+  </ul>
+</section>
 
-      <div class="cta">
-        <a class="btn primary" href="https://www.instagram.com/thunderbull.jo?igsh=eGdtMjA0bm1ueGIx" target="_blank">
-          ⚡ Follow on Instagram
-        </a>
-        <a class="btn ghost" href="#about">About Us</a>
-      </div>
-    </section>
+<section>
+  <h2>🥊 TEKKEN 8</h2>
+  <ul>
+    <li>ReapeR</li>
+    <li>
+      <a href="https://www.instagram.com/hamzaaltamimi006?igsh=MWpjNHU5Z3ZvbGNhOA==" target="_blank">
+        Hamza AlTamimi
+      </a>
+    </li>
+  </ul>
+</section>
 
-    <section class="grid" id="about">
-      <div class="card">
-        <h2>About Thunderbull</h2>
-        <p>
-          Thunderbull is a Jordanian esports organization created to unite talented players
-          under one banner. We focus on competitive performance, professionalism,
-          and building a strong esports community in Jordan and the region.
-        </p>
-      </div>
+<section class="sponsor">
+  <h2>🤝 Official Sponsor</h2>
+  <img src="logo-sponsor.png.jpg" alt="Sponsor Logo">
+  <p>
+    <a href="https://www.instagram.com/d2gamingcenter?igsh=dHBjZWk2Z2phYnZn" target="_blank">
+      D2 Gaming Center – Instagram
+    </a>
+  </p>
+</section>
 
-      <div class="card">
-        <h2>Team Identity</h2>
-        <p>
-          Our colors represent who we are: black for focus and control, red for aggression
-          and passion, and gold for victory and ambition.
-        </p>
-      </div>
-    </section>
-
-    <section class="sponsor" id="sponsor">
-      <h3>Official Sponsor</h3>
-      <div class="sponsor-logo">
-        <!-- شعار السبونسر -->
-        <img src="logo-sponsor.png.jpg" alt="Sponsor Logo">
-      </div>
-    </section>
-
-    <section class="social" id="social">
-      <a href="https://www.instagram.com/thunderbull.jo?igsh=eGdtMjA0bm1ueGIx" target="_blank">Instagram</a>
-      <a href="https://www.facebook.com/share/1J7bc2PwDn/?mibextid=wwXIfr" target="_blank">Facebook</a>
-    </section>
-
-    <footer>
-      © 2026 Thunderbull Esports • Powered by GitHub Pages
-    </footer>
-  </div>
+<footer>
+  © 2026 Thunderbull Esports • Powered by GitHub Pages
+</footer>
 
 </body>
 </html>

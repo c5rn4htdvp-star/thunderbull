@@ -9,20 +9,21 @@
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:#05060a;
-  color:#e5e7eb;
+  background:#000;
+  color:#eee;
   direction:rtl;
 }
 
 header{
   text-align:center;
   padding:50px 20px;
+  background:linear-gradient(180deg,#8b0000,#000);
 }
 header img{
   width:170px;
 }
 h1{
-  color:#f5c542;
+  color:#ff1f1f;
   letter-spacing:2px;
   margin-top:20px;
 }
@@ -31,12 +32,13 @@ h1{
   max-width:1000px;
   margin:30px auto;
   padding:25px;
-  background:#0b0f1a;
+  background:#0a0a0a;
+  border:1px solid #8b0000;
   border-radius:20px;
 }
 
 .section h2{
-  color:#f5c542;
+  color:#ff1f1f;
   margin-bottom:15px;
 }
 
@@ -49,11 +51,16 @@ li{
 }
 
 a{
-  color:#60a5fa;
+  color:#ff4d4d;
   text-decoration:none;
 }
 a:hover{
   text-decoration:underline;
+}
+
+.social-links a{
+  display:inline-block;
+  margin:5px 10px;
 }
 
 .sponsor{
@@ -83,11 +90,18 @@ footer{
 
 <!-- ABOUT -->
 <div class="section">
-  <h2>📖 نبذة عن الفريق</h2>
+  <h2>📖 نبذة عن الفريق | About Us</h2>
+
   <p>
     تأسس فريق <strong>Thunder Bull Esports</strong> في عام <strong>٢٠٢٥</strong>
-    ليواكب التغيرات والتطور على الساحة الرياضية الإلكترونية الأردنية،
-    ويهدف إلى المنافسة وبناء اسم قوي في عالم الرياضات الإلكترونية.
+    ليواكب التغيرات على الساحة الرياضية الإلكترونية الأردنية،
+    ويسعى إلى المنافسة وبناء اسم قوي في عالم الرياضات الإلكترونية.
+  </p>
+
+  <p>
+    <strong>Thunder Bull Esports</strong> was founded in <strong>2025</strong> to keep up
+    with the evolving Jordanian esports scene, aiming to compete and build a strong
+    presence in professional esports.
   </p>
 
   <ul>
@@ -97,15 +111,29 @@ footer{
   </ul>
 </div>
 
+<!-- TEAM ACCOUNTS -->
+<div class="section">
+  <h2>📱 Team Accounts</h2>
+  <div class="social-links">
+    <a href="https://www.instagram.com/thunderbull.jo" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/share/1J7bc2PwDn" target="_blank">Facebook</a>
+  </div>
+</div>
+
 <!-- EFOOTBALL -->
 <div class="section">
   <h2>🎮 EFootball</h2>
   <ul>
-    <li>SwiftorX14</li>
+    <li>
+      SwiftorX14 —
+      <a href="https://www.instagram.com/moayadismael06" target="_blank">
+        Instagram
+      </a>
+    </li>
   </ul>
 </div>
 
-<!-- RAINBOW SIX SIEGE -->
+<!-- RAINBOW SIX -->
 <div class="section">
   <h2>🔫 Rainbow Six Siege</h2>
   <ul>
@@ -133,7 +161,7 @@ footer{
 
 <!-- SPONSOR -->
 <div class="section sponsor">
-  <h2>🤝 السبونسر الرسمي</h2>
+  <h2>🤝 Official Sponsor</h2>
   <img src="logo-sponsor.png.jpg" alt="Sponsor Logo">
   <p>
     <a href="https://www.instagram.com/d2gamingcenter" target="_blank">

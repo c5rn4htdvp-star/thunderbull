@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ThunderBull Esports</title>
 
 <style>
@@ -19,9 +19,7 @@
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:
-    radial-gradient(900px 500px at 15% 10%, rgba(255,31,31,.14), transparent 60%),
-    linear-gradient(180deg, #050507, #000);
+  background:linear-gradient(180deg,#050507,#000);
   color:var(--text);
   direction:rtl;
 }
@@ -30,8 +28,7 @@ body{
 .nav{
   position:sticky;
   top:0;
-  background:rgba(5,5,7,.8);
-  backdrop-filter: blur(10px);
+  background:#050507;
   border-bottom:1px solid var(--line);
 }
 .nav-inner{
@@ -46,13 +43,13 @@ body{
   color:#fff;
   text-decoration:none;
   margin:0 6px;
-  font-size:13px;
   padding:6px 10px;
   border-radius:999px;
   border:1px solid var(--line);
+  font-size:13px;
 }
 .nav a:hover{
-  background:rgba(255,31,31,.15);
+  background:rgba(255,31,31,.2);
 }
 
 /* HERO */
@@ -69,40 +66,24 @@ body{
 }
 .hero-box{
   background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
   padding:25px;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
 }
 .hero h1{
   margin:0;
   color:var(--red);
-  font-size:38px;
 }
 .hero p{
   color:var(--muted);
   line-height:1.7;
 }
-
-.buttons a{
-  display:inline-block;
-  margin-top:10px;
-  margin-left:6px;
-  padding:10px 14px;
-  border-radius:12px;
-  border:1px solid var(--red);
-  color:#fff;
-  text-decoration:none;
-}
-.buttons a:hover{
-  background:rgba(255,31,31,.2);
-}
-
 .logo-box{
-  background:#0b0b10;
+  text-align:center;
+  background:var(--panel);
   border:1px solid var(--line);
   border-radius:var(--radius);
   padding:20px;
-  text-align:center;
 }
 .logo-box img{
   width:180px;
@@ -119,10 +100,9 @@ body{
 }
 .section h2{
   color:var(--red);
-  margin-top:0;
 }
 
-/* PLAYER CARD */
+/* EFOOTBALL CARD */
 .player-card{
   display:flex;
   gap:20px;
@@ -163,10 +143,19 @@ body{
   border:1px solid var(--red);
   color:#fff;
   text-decoration:none;
-  font-size:13px;
 }
 .player-info a:hover{
   background:rgba(255,31,31,.2);
+}
+
+/* LIST */
+ul{
+  list-style:none;
+  padding:0;
+}
+li{
+  padding:6px 0;
+  color:#ddd;
 }
 
 /* FOOTER */
@@ -187,7 +176,7 @@ footer{
     <div>
       <a href="#about">نبذة</a>
       <a href="players.html">Players</a>
-      <a href="#efootball">EFootball</a>
+      <a href="#games">Games</a>
       <a href="#sponsor">Sponsor</a>
     </div>
   </div>
@@ -197,17 +186,11 @@ footer{
   <div class="hero-box">
     <h1>THUNDERBULL ESPORTS</h1>
     <p>
-      فريق أردني للرياضات الإلكترونية، تأسس عام <strong>٢٠٢٥</strong>
-      لمواكبة التغيرات على الساحة الأردنية والمنافسة بقوة.
+      فريق أردني للرياضات الإلكترونية تأسس عام <strong>٢٠٢٥</strong>
+      لمواكبة التغيرات والمنافسة على الساحة الأردنية.
       <br><br>
-      A Jordanian esports team founded in 2025 to compete and grow.
+      A Jordanian esports team founded in 2025.
     </p>
-
-    <div class="buttons">
-      <a href="https://thunderbulljo.netlify.app" target="_blank">Website</a>
-      <a href="https://www.instagram.com/thunderbull.jo" target="_blank">Instagram</a>
-      <a href="https://www.facebook.com/share/1J7bc2PwDn/?mibextid=wwXIfr" target="_blank">Facebook</a>
-    </div>
   </div>
 
   <div class="logo-box">
@@ -225,20 +208,27 @@ footer{
 </div>
 
 <!-- EFOOTBALL CARD -->
-<div id="efootball" class="section">
-  <h2>🎮 EFootball Player</h2>
-
+<div class="section">
+  <h2>🎮 EFootball</h2>
   <div class="player-card">
     <div class="player-img">
       <img src="swiftorx14.jpg.JPG" alt="SwiftorX14">
     </div>
-
     <div class="player-info">
       <h3>SwiftorX14</h3>
       <span>EFootball Pro Player</span><br>
       <a href="players.html">View Profile</a>
     </div>
   </div>
+</div>
+
+<!-- OTHER GAMES NORMAL -->
+<div id="games" class="section">
+  <h2>الألعاب الأخرى</h2>
+  <ul>
+    <li>🔫 Rainbow Six Siege</li>
+    <li>🥊 TEKKEN 8</li>
+  </ul>
 </div>
 
 <div id="sponsor" class="section">

@@ -1,170 +1,80 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>ThunderBull Esports</title>
 
 <style>
-:root{
-  --bg:#050507;
-  --panel:#0b0b10;
-  --text:#e9e9ee;
-  --muted:#b7b7c4;
-  --red:#ff1f1f;
-  --line:rgba(255,255,255,.08);
-  --radius:18px;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:linear-gradient(180deg,#050507,#000);
-  color:var(--text);
-  direction:rtl;
-}
+  :root{
+    --bg:#050507;
+    --panel:#0b0b10;
+    --panel2:#0f1018;
+    --text:#e9e9ee;
+    --muted:#b7b7c4;
+    --red:#ff1f1f;
+    --red2:#8b0000;
+    --line:rgba(255,255,255,.08);
+    --shadow:0 18px 50px rgba(0,0,0,.55);
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+      radial-gradient(900px 500px at 15% 10%, rgba(255,31,31,.14), transparent 60%),
+      radial-gradient(700px 450px at 85% 25%, rgba(139,0,0,.18), transparent 55%),
+      linear-gradient(180deg, #050507, #000);
+    color:var(--text);
+    direction:rtl;
+  }
+  .nav{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter: blur(10px);
+    background: rgba(5,5,7,.65);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1100px; margin:0 auto; padding:12px 16px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text)}
+  .brand-badge{
+    width:34px;height:34px;border-radius:12px;
+    background: linear-gradient(145deg, rgba(255,31,31,.25), rgba(139,0,0,.15));
+    border:1px solid rgba(255,31,31,.25);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .brand-badge span{font-weight:900;color:var(--red)}
+  .nav-links{display:flex;gap:10px;flex-wrap:wrap}
+  .chip{
+    text-decoration:none;color:var(--text);font-size:12px;
+    padding:8px 10px;border-radius:999px;
+    border:1px solid var(--line);background:rgba(255,255,255,.03);
+  }
+  .hero{max-width:1100px;margin:0 auto;padding:34px 16px;display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .hero-card{background:rgba(15,16,24,.9);border:1px solid rgba(255,31,31,.18);border-radius:var(--radius);padding:22px}
+  .title{margin:0;font-size:42px}
+  .accent{color:var(--red)}
+  .meta{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .stat{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:12px}
+  .stat strong{display:block;color:var(--red)}
+  .stat span{display:block;color:var(--muted);font-size:12px}
 
-/* NAV */
-.nav{
-  position:sticky;
-  top:0;
-  background:#050507;
-  border-bottom:1px solid var(--line);
-}
-.nav-inner{
-  max-width:1100px;
-  margin:auto;
-  padding:12px 16px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.nav a{
-  color:#fff;
-  text-decoration:none;
-  margin:0 6px;
-  padding:6px 10px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  font-size:13px;
-}
-.nav a:hover{
-  background:rgba(255,31,31,.2);
-}
+  .logo-card{background:#0b0b10;border:1px solid var(--line);border-radius:var(--radius);padding:18px;text-align:center}
+  .logo-wrap img{width:180px}
 
-/* HERO */
-.hero{
-  max-width:1100px;
-  margin:auto;
-  padding:40px 16px;
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:20px;
-}
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr}
-}
-.hero-box{
-  background:var(--panel);
-  padding:25px;
-  border-radius:var(--radius);
-  border:1px solid var(--line);
-}
-.hero h1{
-  margin:0;
-  color:var(--red);
-}
-.hero p{
-  color:var(--muted);
-  line-height:1.7;
-}
-.logo-box{
-  text-align:center;
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:20px;
-}
-.logo-box img{
-  width:180px;
-}
+  .container{max-width:1100px;margin:0 auto;padding:0 16px 24px}
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+  .card{background:rgba(15,16,24,.7);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+  .span-6{grid-column:span 6}
+  .span-12{grid-column:span 12}
+  @media(max-width:900px){.span-6,.span-12{grid-column:span 12}}
 
-/* SECTION */
-.section{
-  max-width:1100px;
-  margin:30px auto;
-  padding:20px;
-  background:var(--panel);
-  border-radius:var(--radius);
-  border:1px solid var(--line);
-}
-.section h2{
-  color:var(--red);
-}
-
-/* EFOOTBALL CARD */
-.player-card{
-  display:flex;
-  gap:20px;
-  align-items:center;
-  background:#0f0f15;
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:18px;
-}
-@media(max-width:700px){
-  .player-card{flex-direction:column;text-align:center}
-}
-.player-img{
-  width:140px;
-  height:140px;
-  border-radius:14px;
-  overflow:hidden;
-  border:2px solid var(--red);
-}
-.player-img img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.player-info h3{
-  margin:0;
-  color:var(--red);
-}
-.player-info span{
-  color:var(--muted);
-  font-size:13px;
-}
-.player-info a{
-  display:inline-block;
-  margin-top:10px;
-  padding:8px 12px;
-  border-radius:10px;
-  border:1px solid var(--red);
-  color:#fff;
-  text-decoration:none;
-}
-.player-info a:hover{
-  background:rgba(255,31,31,.2);
-}
-
-/* LIST */
-ul{
-  list-style:none;
-  padding:0;
-}
-li{
-  padding:6px 0;
-  color:#ddd;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:20px;
-  color:#777;
-  border-top:1px solid var(--line);
-}
+  footer{text-align:center;padding:20px;color:#8c8c98;border-top:1px solid var(--line)}
 </style>
 </head>
 
@@ -172,73 +82,50 @@ footer{
 
 <div class="nav">
   <div class="nav-inner">
-    <strong>ThunderBull Esports</strong>
-    <div>
-      <a href="#about">نبذة</a>
-      <a href="players.html">Players</a>
-      <a href="#games">Games</a>
-      <a href="#sponsor">Sponsor</a>
+    <a class="brand" href="#top">
+      <div class="brand-badge"><span>TB</span></div>
+      <strong>ThunderBull Esports</strong>
+    </a>
+    <div class="nav-links">
+      <a class="chip" href="#about">نبذة</a>
+      <a class="chip" href="#efootball">EFootball</a>
+      <a class="chip" href="#r6">Rainbow Six</a>
+      <a class="chip" href="#tekken">TEKKEN 8</a>
+      <a class="chip" href="#sponsor">Sponsor</a>
     </div>
   </div>
 </div>
 
-<div class="hero">
-  <div class="hero-box">
-    <h1>THUNDERBULL ESPORTS</h1>
-    <p>
-      فريق أردني للرياضات الإلكترونية تأسس عام <strong>٢٠٢٥</strong>
-      لمواكبة التغيرات والمنافسة على الساحة الأردنية.
-      <br><br>
+<div id="top" class="hero">
+  <div class="hero-card">
+    <h1 class="title"><span class="accent">THUNDERBULL</span> ESPORTS</h1>
+    <p class="subtitle">
+      فريق أردني للرياضات الإلكترونية تأسس عام ٢٠٢٥.
+      <br>
       A Jordanian esports team founded in 2025.
     </p>
-  </div>
 
-  <div class="logo-box">
-    <img src="logo-team.png.jpg.JPG" alt="ThunderBull Logo">
-  </div>
-</div>
-
-<div id="about" class="section">
-  <h2>الإدارة</h2>
-  <ul>
-    <li><strong>Founder:</strong> Moayad Jalal</li>
-    <li><strong>Team Manager:</strong> Yazan Alseksek</li>
-    <li><strong>General Manager:</strong> Mahmoud Khtoum</li>
-  </ul>
-</div>
-
-<!-- EFOOTBALL CARD -->
-<div class="section">
-  <h2>🎮 EFootball</h2>
-  <div class="player-card">
-    <div class="player-img">
-      <img src="swiftorx14.jpg.JPG" alt="SwiftorX14">
-    </div>
-    <div class="player-info">
-      <h3>SwiftorX14</h3>
-      <span>EFootball Pro Player</span><br>
-      <a href="players.html">View Profile</a>
+    <div class="meta">
+      <div class="stat">
+        <strong>Founder</strong>
+        <span>Moayad Jalal</span>
+      </div>
+      <div class="stat">
+        <strong>Team Manager</strong>
+        <span>Yazan Alseksek</span>
+      </div>
+      <div class="stat">
+        <strong>General Manager</strong>
+        <span>Mahmoud Khtoum</span>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- OTHER GAMES NORMAL -->
-<div id="games" class="section">
-  <h2>الألعاب الأخرى</h2>
-  <ul>
-    <li>🔫 Rainbow Six Siege</li>
-    <li>🥊 TEKKEN 8</li>
-  </ul>
-</div>
-
-<div id="sponsor" class="section">
-  <h2>Sponsor</h2>
-  <img src="logo-sponsor.png.jpg" width="200">
-  <p>
-    <a href="https://www.instagram.com/d2gamingcenter" target="_blank">
-      D2 Gaming Center – Instagram
-    </a>
-  </p>
+  <div class="logo-card">
+    <div class="logo-wrap">
+      <img src="logo-team.png.jpg.JPG" alt="ThunderBull Logo">
+    </div>
+  </div>
 </div>
 
 <footer>

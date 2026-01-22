@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThunderBull Esports | Contact / Join Us</title>
+
+  <style>
+    :root{
+      --bg:#050507;
+      --panel:#0b0b10;
+      --panel2:#0f1018;
+      --text:#e9e9ee;
+      --muted:#b7b7c4;
+      --red:#ff1f1f;
+      --red2:#8b0000;
+      --line:rgba(255,255,255,.08);
+      --shadow:0 18px 50px rgba(0,0,0,.55);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(255,31,31,.14), transparent 60%),
+        radial-gradient(700px 450px at 85% 25%, rgba(139,0,0,.18), transparent 55%),
+        linear-gradient(180deg, #050507, #000);
+      color:var(--text);
+      direction:rtl;
+    }
+
+    /* Nav */
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(5,5,7,.65);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:12px 16px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      justify-content:space-between;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color:var(--text);
+    }
+    .brand-badge{
+      width:34px;height:34px;
+      border-radius:12px;
+      background: linear-gradient(145deg, rgba(255,31,31,.25), rgba(139,0,0,.15));
+      border:1px solid rgba(255,31,31,.25);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 10px 30px rgba(255,31,31,.08);
+    }
+    .brand-badge span{font-weight:900;color:var(--red)}
+    .brand-title{display:flex;flex-direction:column;line-height:1.1}
+    .brand-title strong{font-size:14px; letter-spacing:.5px}
+    .brand-title small{font-size:11px; color:var(--muted)}
+    .nav-links{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .chip{
+      text-decoration:none;
+      color:var(--text);
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+    }
+    .chip:hover{border-color:rgba(255,31,31,.35); background:rgba(255,31,31,.06)}
+
+    /* Layout */
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:22px 16px 30px;
+    }
+    .hero{
+      background: linear-gradient(180deg, rgba(15,16,24,.9), rgba(10,10,16,.85));
+      border:1px solid rgba(255,31,31,.18);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+      margin-bottom:14px;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(420px 260px at 20% 10%, rgba(255,31,31,.22), transparent 65%),
+                  radial-gradient(520px 320px at 80% 35%, rgba(139,0,0,.22), transparent 70%);
+      pointer-events:none;
+      opacity:.85;
+    }
+    .hero-content{position:relative}
+    h1{
+      margin:0 0 8px 0;
+      font-size:34px;
+      letter-spacing:1px;
+    }
+    .accent{color:var(--red)}
+    .muted{color:var(--muted); font-size:13px; line-height:1.75; margin:0}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      background:rgba(15,16,24,.7);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 10px 35px rgba(0,0,0,.45);
+    }
+    .card:hover{border-color:rgba(255,31,31,.25)}
+    .card h2{
+      margin:0 0 10px 0;
+      font-size:18px;
+      color:var(--red);
+      letter-spacing:.5px;
+    }
+    .span-6{grid-column:span 6}
+    .span-12{grid-column:span 12}
+    @media(max-width:900px){
+      .span-6,.span-12{grid-column:span 12}
+    }
+
+    /* Buttons */
+    .cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:13px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+    }
+    .btn:hover{transform: translateY(-1px); border-color:rgba(255,31,31,.35); background:rgba(255,31,31,.08)}
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(255,31,31,.95), rgba(139,0,0,.95));
+      border-color: rgba(255,31,31,.45);
+    }
+    .btn.primary:hover{background: linear-gradient(180deg, rgba(255,31,31,1), rgba(139,0,0,1))}
+
+    /* Form */
+    form{margin-top:10px}
+    .row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    @media(max-width:700px){
+      .row{grid-template-columns:1fr}
+    }
+    label{display:block; font-size:12px; color:var(--muted); margin:8px 0 6px}
+    input, select, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      outline:none;
+      font-size:13px;
+    }
+    textarea{min-height:120px; resize:vertical}
+    input:focus, select:focus, textarea:focus{
+      border-color:rgba(255,31,31,.35);
+      box-shadow: 0 0 0 4px rgba(255,31,31,.08);
+    }
+    .hint{font-size:12px; color:var(--muted); margin-top:8px}
+
+    /* Footer */
+    footer{
+      text-align:center;
+      padding:20px 16px 30px;
+      color:#8c8c98;
+      border-top:1px solid var(--line);
+      margin-top:18px;
+    }
+    .divider{
+      border:0;border-top:1px solid rgba(255,255,255,.08);
+      margin:12px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <div class="brand-badge"><span>TB</span></div>
+      <div class="brand-title">
+        <strong>ThunderBull Esports</strong>
+        <small>Jordan • Since 2025</small>
+      </div>
+    </a>
+
+    <div class="nav-links">
+      <a class="chip" href="index.html#about">نبذة</a>
+      <a class="chip" href="index.html#news">الأخبار</a>
+      <a class="chip" href="index.html#accounts">الحسابات</a>
+      <a class="chip" href="index.html#efootball">EFootball</a>
+      <a class="chip" href="index.html#r6">Rainbow Six</a>
+      <a class="chip" href="index.html#tekken">TEKKEN 8</a>
+      <a class="chip" href="#contact">Contact / Join</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1><span class="accent">Contact</span> / Join Us</h1>
+      <p class="muted">
+        تواصل معنا للرعاية، التعاون، أو الانضمام للفريق (لاعبين / محتوى / إدارة).
+        <br>
+        Contact us for sponsorships, collaborations, or to join the team (players / content / management).
+      </p>
+
+      <div class="cta-row">
+        <a class="btn primary" href="https://www.instagram.com/thunderbull.jo" target="_blank">📷 Instagram DM</a>
+        <a class="btn" href="mailto:thunderbull.esports.jo@gmail.com">✉️ Email (Edit)</a>
+        <a class="btn" href="index.html">⬅️ Home</a>
+      </div>
+      <p class="hint">عدّل الإيميل بالرابط اللي فوق حسب الإيميل الرسمي للفريق.</p>
+    </div>
+  </div>
+
+  <div id="contact" class="grid">
+
+    <!-- CONTACT INFO -->
+    <div class="card span-6">
+      <h2>📌 معلومات التواصل</h2>
+      <p class="muted">
+        - Instagram: thunderbull.jo<br>
+        - Facebook: صفحة الفريق<br>
+        - Email: (ضع الإيميل الرسمي)<br>
+        - Sponsor: D2 Gaming Center
+      </p>
+
+      <hr class="divider">
+
+      <p class="muted">
+        <strong>أوقات الرد:</strong> خلال 24–48 ساعة.
+        <br>
+        <strong>Response time:</strong> within 24–48 hours.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn" href="https://www.instagram.com/thunderbull.jo" target="_blank">📷 Open Instagram</a>
+        <a class="btn" href="https://www.facebook.com/share/1J7bc2PwDn/?mibextid=wwXIfr" target="_blank">📘 Open Facebook</a>
+      </div>
+    </div>
+
+    <!-- JOIN FORM -->
+    <div class="card span-6">
+      <h2>📝 طلب انضمام | Join Request</h2>
+      <p class="muted">
+        عبّي النموذج، وبعدها تواصل معنا على الإنستغرام وارسل "Join Request" مع اسمك.
+        <br>
+        Fill the form, then DM us on Instagram with "Join Request" + your name.
+      </p>
+
+      <!--
+        ✅ خيار 1 (سهل): Netlify Forms
+        لو موقعك على Netlify، بس ضيف:
+        - form name
+        - netlify
+        - hidden input
+      -->
+      <form name="join-request" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="join-request" />
+
+        <div class="row">
+          <div>
+            <label for="fullName">الاسم الكامل | Full Name</label>
+            <input id="fullName" name="fullName" type="text" placeholder="مثال: Moayad Jalal" required />
+          </div>
+          <div>
+            <label for="age">العمر | Age</label>
+            <input id="age" name="age" type="number" min="10" max="60" placeholder="مثال: 19" required />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="role">نوع الطلب | Type</label>
+            <select id="role" name="role" required>
+              <option value="" disabled selected>اختر...</option>
+              <option>Player (لاعب)</option>
+              <option>Content Creator (صانع محتوى)</option>
+              <option>Coach / Analyst (مدرب / محلل)</option>
+              <option>Management (إدارة)</option>
+              <option>Sponsorship / Partnership (رعاية / شراكة)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="game">اللعبة | Game</label>
+            <select id="game" name="game" required>
+              <option value="" disabled selected>اختر...</option>
+              <option>Rainbow Six Siege</option>
+              <option>eFootball (Console)</option>
+              <option>TEKKEN 8</option>
+              <option>Other (أخرى)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="city">المدينة | City</label>
+            <input id="city" name="city" type="text" placeholder="مثال: Amman" required />
+          </div>
+          <div>
+            <label for="contact">وسيلة تواصل | Contact</label>
+            <input id="contact" name="contact" type="text" placeholder="Instagram / Discord / Phone" required />
+          </div>
+        </div>
+
+        <label for="message">نبذة + إنجازات | Bio + Achievements</label>
+        <textarea id="message" name="message" placeholder="اكتب نبذة قصيرة + الرانك/إنجازات/روابط..." required></textarea>
+
+        <label style="margin-top:12px;">
+          <input type="checkbox" required style="width:auto; margin-left:8px; vertical-align:middle;">
+          أوافق على مشاركة المعلومات مع إدارة الفريق | I agree to share my info with the team management
+        </label>
+
+        <div class="cta-row">
+          <button class="btn primary" type="submit">🚀 إرسال الطلب | Submit</button>
+          <a class="btn" href="index.html#accounts">📱 حسابات الفريق</a>
+        </div>
+
+        <p class="hint">
+          ✅ إذا كنت مستضيف على Netlify: النموذج رح يوصل تلقائيًا من لوحة Netlify (Forms).<br>
+          إذا مو Netlify: قولي وين مستضيف وبعمله لك بطرق ثانية (Google Forms / Email).
+        </p>
+      </form>
+    </div>
+
+    <!-- SPONSORSHIP -->
+    <div class="card span-12">
+      <h2>🤝 Sponsorship / Partnerships</h2>
+      <p class="muted">
+        للرعاية أو الشراكات: اكتب لنا تفاصيل العرض + مدة الرعاية + نوع الدعم (مالي/معدات/مكان تدريب/تسويق).
+        <br>
+        For sponsorships: send offer details, duration, and support type (financial/gear/venue/marketing).
+      </p>
+
+      <div class="cta-row">
+        <a class="btn primary" href="https://www.instagram.com/thunderbull.jo" target="_blank">📩 DM Sponsorship</a>
+        <a class="btn" href="mailto:thunderbull.esports.jo@gmail.com">✉️ Email (Edit)</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  © 2026 ThunderBull Esports • Contact / Join Us
+</footer>
+
+</body>
+</html>
